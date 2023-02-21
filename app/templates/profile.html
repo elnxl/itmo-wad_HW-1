@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>{{user.fullname}}</h1>
+        <h2>{{user.city}}</h2><hr>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <p><mark>Security REsearcher.</mark></p>
+        </div>
+          <p>DefCon speaker (2022).</p>
+          <p>Interested in reverse-engineering, low-level architecture security, operating systems and coding.</p>
+          <p>Fan of criminal and mind-blowing series and movies.</p>
+        <div class="row">
+          <p><mark>GitHub Stats<br></mark></p>
+        </div>
+          <p>Repos: {{user.repos}}</p>
+          <p>Followers: {{user.followers}}</p>
+          <p>Following: {{user.following}}</p>
+      </div>
+      <div class="col">
+        <img src="static/profile.png" alt="avatar">
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>Education</h2><hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h3>ITMO University</h3>
+      </div>
+      <div class="col">
+        <p>Bachelor’s Degree</p>
+      </div>
+      <div class="col">
+        <p>10.03.01 Information security</p>
+      </div>
+      <div class="col">
+        <p>2018 - 2022</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h3>ITMO University</h3>
+      </div>
+      <div class="col">
+        <p>Master’s Degree</p>
+      </div>
+      <div class="col">
+        <p>10.04.01 Information security</p>
+      </div>
+      <div class="col">
+        <p>2022 - present</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>Professional Experience</h2><hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p>Audit private-secure mobile OS</p>
+      </div>
+      <div class="col">
+        <p>Audit fin-tech software</p>
+      </div>
+      <div class="col">
+        <p>Audit desktop & mobile applications</p>
+      </div>
+      <div class="col">
+        <p>Author of a corporate blog</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>Techinal Expertise</h2><hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p>IDA Pro</p>
+      </div>
+      <div class="col">
+        <p>Python</p>
+      </div>
+      <div class="col">
+        <p>Go</p>
+      </div>
+      <div class="col">
+        <p>Fuzzing engines</p>
+      </div>
+      <div class="col">
+        <p>MobSF</p>
+      </div>
+      <div class="col">
+        <p>Objection</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    {%- if user.username -%}
+    <div class="row">
+      <div class="col-8 col-md-6">
+        <h2>Contacts</h2>
+      </div>
+      <div class="col-4 col-md-3">
+        <button type="button" class="btn btn-light">
+          <span class="bi bi-github">
+            <p><a href="https://github.com/{{user.username}}">{{ user.username }}</a></p>
+          </span>
+        </button>
+      </div>
+      <div class="col-4 col-md-3">
+        <button type="button" class="btn btn-light">
+          <span class="bi bi-telegram">
+            <p><a href="tg://resolve?domain={{ user.username }}">@{{ user.username }}</a></p>
+          </span>
+        </button>
+      </div>
+    </div>
+    {%- endif -%}
+  </div>
+{% endblock %}
